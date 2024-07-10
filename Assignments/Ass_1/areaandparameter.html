@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            
+//calculate the area of a circle
+const calculateArea=(radius) =>{
+    var area = Math.PI * radius * radius;
+    return area.toFixed(2); 
+}
+
+//calculate the perimeter (circumference) of a circle
+const calculatePerimeter=(radius) =>{
+    var perimeter = 2 * Math.PI * radius;
+    return perimeter.toFixed(2); 
+}
+
+
+function validate()
+{
+    
+var radius = parseFloat(document.getElementById("inputradius").value);
+
+var divResult=document.getElementById("divResult");
+if (isNaN(radius) || radius <= 0) {
+    if(divResult!=null)
+        divResult.innerHTML="Please enter valid radius of circle";
+} 
+else {
+    var area = calculateArea(radius);
+    var perimeter = calculatePerimeter(radius);
+
+    divResult.innerHTML="Radius:"+radius;
+    divResult.innerHTML+="\nArea of the circle:"+ area;
+    divResult.innerHTML+="\nPerimeter (Circumference) of the circle:"+ perimeter;
+}
+}
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="inputradius" placeholder="Enter radius of circle"/>
+        <button onclick="validate()">Calculate</button>
+
+        <div id="divResult"></div>
+
+    </body>
+</html>
